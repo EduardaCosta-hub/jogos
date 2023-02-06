@@ -3,12 +3,14 @@ def jogar():
     print("*********************************")
     print("Bem vindo ao jogo de adivinhação!")
     print("*********************************")
+
     numero_secreto = random.randint(1,101)
     pontos = 1000
     tentativas = 1
     print("Em qual nível você deseja jogar?")
     print("(1)Fácil  (2)Médio  (3)Difícil")
     nivel = int(input("Insira o número:"))
+
     if nivel == 1:
         chances = 15
     elif nivel == 2:
@@ -33,4 +35,5 @@ def jogar():
         pontos_perdidos = abs(numero_secreto-chute)
         pontos -= pontos_perdidos
         tentativas += 1
+
     print("Fim do jogo")
