@@ -5,6 +5,7 @@ def define_palavra():
     index = random.randint(0, qtd_palavras)
     palavra_secreta = palavras[index]
     return palavra_secreta
+    
 def mostra_palavra(pQtd_letras,pValores):
     print("Palavra:")
     r = 0
