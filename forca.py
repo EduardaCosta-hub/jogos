@@ -1,10 +1,24 @@
 import random
+def define_palavra():
+    palavras = ["banana","maçã","morango","melancia","manga"]
+    qtd_palavras = len(palavras)
+    index = random.randint(0, qtd_palavras)
+    palavra_secreta = palavras[index]
+    return palavra_secreta
+def mostra_palavra(pQtd_letras,pValores):
+    print("Palavra:")
+    r = 0
+    while r < pQtd_letras:
+        print(pValores[r], end="")
+        r += 1
+    print(" ")
+
 def jogar():
     print("*********************************")
     print("Bem vindo ao jogo de forca!")
     print("*********************************")
 
-    palavra_secreta = "BANANA"
+    palavra_secreta = define_palavra()
     qtd_letras = len(palavra_secreta)
     valores = []
     perdeu = False
@@ -29,11 +43,9 @@ def jogar():
                 encontrou = True
                 valores[index] = chute
             index += 1
-        print("Palavra:")
-        print(valores)
         if not encontrou:
             print("Não encontrei esta letra")
-
+        mostra_palavra(qtd_letras,valores)
     print("Fim do jogo!")
 
 if (__name__ == "__main__"):
