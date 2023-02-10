@@ -1,4 +1,5 @@
 import random
+from unittest import case
 def define_palavra():
     palavras = ["banana","maçã","morango","melancia","manga"]
     qtd_palavras = len(palavras)
@@ -11,9 +12,9 @@ def define_nivel():
     print("(1)Fácil  (2)Médio  (3)Difícil")
     nivel = int(input("Insira o número:"))
     if nivel == 1:
-        max_erros = 10
+        max_erros = 7
     elif nivel == 2:
-        max_erros = 6
+        max_erros = 5
     else:
         max_erros = 3
     return max_erros
@@ -34,13 +35,176 @@ def testa_perdeu(pAcertos, pQtd_letras, pErros, pMax_erros):
         perdeu = False
     return perdeu
 
+def mostra_forca(pMax_erros, pErros):
+    if pMax_erros == 7:
+        if pErros == 1: 
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (   )")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 2:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x x)")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 3:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 4:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|        [ ]")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 5:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|       |[ ]|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 6:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|       |[ ]|")
+            print("|        [ ]")
+            print("|")
+            print("|")
+        elif pErros == 7:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|       |[ ]|")
+            print("|        [ ]")
+            print("|        | |")
+            print("|")
+        else:
+            print(" _________")  
+            print("|         |")
+            print("|         |")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+
+    elif pMax_erros == 5:
+        if pErros == 1:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 1:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|        [ ]")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 3:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x x)")
+            print("|       |[ ]|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 4:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x x)")
+            print("|       |[ ]|")
+            print("|        [ ]")
+            print("|")
+            print("|")
+        elif pErros == 5:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x x)")
+            print("|       |[ ]|")
+            print("|        [ ]")
+            print("|        | |")
+            print("|")
+        else:
+            print(" _________")  
+            print("|         |")
+            print("|         |")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+
+    else:
+        if pErros == 1:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x_x)")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 2:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x x)")
+            print("|       |[ ]|")
+            print("|")
+            print("|")
+            print("|")
+        elif pErros == 3:
+            print(" _________")  
+            print("|         |")
+            print("|        _|_")
+            print("|       (x x)")
+            print("|       |[ ]|")
+            print("|        [ ]")
+            print("|        | |")
+            print("|")
+        else:
+            print(" _________")  
+            print("|         |")
+            print("|         |")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+            print("|")
+
 def mostra_palavra(pQtd_letras,pValores):
-    print(" ________")
-    print("|        |")
-    print("|         ")
-    print("|         ")
-    print("|         ")
-    print("|         ")
     print("Palavra:")
     r = 0
     while r < pQtd_letras:
@@ -92,6 +256,7 @@ def jogar():
         if not encontrou:
             print("Não encontrei esta letra")
             erros +=1
+        mostra_forca(max_erros, erros)
         mostra_palavra(qtd_letras,valores)
         encerra = testa_encerra(acertos, qtd_letras, erros, max_erros)
         perdeu = testa_perdeu(acertos, qtd_letras, erros, max_erros)
