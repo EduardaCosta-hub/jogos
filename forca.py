@@ -3,7 +3,7 @@ import os
 from unittest import case
 def define_palavra():
     palavras = []
-    os.chdir('chapter10')
+    os.chdir('Frutas.txt')
     with open("Frutas.txt") as arquivo:
         conteudo = arquivo.read()
         for linha in conteudo:
