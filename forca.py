@@ -1,12 +1,11 @@
 import random
-import os
 from unittest import case
 def define_palavra():
     palavras = []
     with open("Frutas.txt") as arquivo:
         conteudo = arquivo.read()
         for linha in conteudo:
-            linha = linha.strip
+            linha = linha.strip()
             print(linha)
             palavras.append(linha)
         arquivo.close()    
