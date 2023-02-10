@@ -1,11 +1,19 @@
 import random
+import os
 from unittest import case
 def define_palavra():
-    palavras = ["banana","maçã","morango","melancia","manga"]
-    qtd_palavras = len(palavras)
-    index = random.randint(0, qtd_palavras)
+    palavras = []
+    os.chdir('chapter10')
+    with open("Frutas.txt") as arquivo:
+        conteudo = arquivo.read()
+        for linha in conteudo:
+            linha = linha.strip
+            print(linha)
+            palavras.append(linha)
+        arquivo.close()    
+    index = random.randint(0, len(palavras))
     palavra_secreta = palavras[index]
-    return palavra_secreta
+    return str(palavra_secreta)
 
 def define_nivel():
     print("Em qual nível você deseja jogar?")
@@ -229,7 +237,7 @@ def jogar():
     qtd_letras = len(palavra_secreta)
     valores = []
     letras_usadas = set()
-    for letras in palavra_secreta:
+    for r in palavra_secreta:
         valores.append("_")
 
     while (not encerra):
