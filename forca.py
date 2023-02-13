@@ -2,13 +2,12 @@ import random
 from unittest import case
 def define_palavra():
     palavras = []
-    with open("Frutas.txt") as arquivo:
-        conteudo = arquivo.read()
-        for linha in conteudo:
+    with open("Frutas.txt", "r") as arquivo:
+        for linha in arquivo:
             linha = linha.strip()
-            print(linha)
             palavras.append(linha)
         arquivo.close()    
+    print(palavras)
     index = random.randint(0, len(palavras))
     palavra_secreta = palavras[index]
     return str(palavra_secreta)
@@ -40,18 +39,19 @@ def testa_perdeu(pAcertos, pQtd_letras, pErros, pMax_erros):
     else:
         perdeu = False
     return perdeu
-
+def img_1():
+    print(" _________")  
+    print("|         |")
+    print("|        _|_")
+    print("|       (   )")
+    print("|")
+    print("|")
+    print("|")
+    print("|")
 def mostra_forca(pMax_erros, pErros):
     if pMax_erros == 7:
         if pErros == 1: 
-            print(" _________")  
-            print("|         |")
-            print("|        _|_")
-            print("|       (   )")
-            print("|")
-            print("|")
-            print("|")
-            print("|")
+            img_1()    
         elif pErros == 2:
             print(" _________")  
             print("|         |")
