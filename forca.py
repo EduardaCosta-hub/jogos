@@ -1,6 +1,5 @@
 import random
 import imagens_forca
-from unittest import case
 
 def jogar():
     print("*********************************")
@@ -14,7 +13,7 @@ def jogar():
     max_erros = define_nivel()
     palavra_secreta = define_palavra()
     qtd_letras = len(palavra_secreta)
-    letras_palavra = define_letras_palavra()
+    letras_palavra = define_letras_palavra(palavra_secreta)
     letras_usadas = set()
 
     while (not encerra):
@@ -53,8 +52,6 @@ def jogar():
         print("Você ganhou!")
     print("Fim do jogo!")
 
-#Funções
-
 def define_nivel():
     print("Em qual nível você deseja jogar?")
     print("(1)Fácil  (2)Médio  (3)Difícil")
@@ -69,12 +66,12 @@ def define_nivel():
 
 def define_palavra():
     palavras = []
-    with open("Frutas.txt", "r") as arquivo:
+    with open("Frutas.txt", "r", encoding="utf-8") as arquivo:
         for linha in arquivo:
             linha = linha.strip()
             palavras.append(linha)
-        arquivo.close()    
-    #print(palavras)
+            print(linha)
+        arquivo.close()  
     index = random.randint(0, len(palavras))
     palavra_secreta = palavras[index]
     return str(palavra_secreta)
@@ -85,33 +82,30 @@ def define_letras_palavra(pPalavra_secreta):
         lista.append("_")
     return lista
 
-def mostra_forca(pMax_erros, pErros):
-    if pMax_erros == 7:
-        case 
-        pErros == 0: imagens_forca.img0()
-        pErros == 1: imagens_forca.img1()
-        pErros == 2: imagens_forca.img2()
-        pErros == 3: imagens_forca.img3()
-        pErros == 4: imagens_forca.img4()
-        pErros == 5: imagens_forca.img5()
-        pErros == 6: imagens_forca.img6()
-        pErros == 7: imagens_forca.img7()
-
+def mostra_forca(pMax_erros = 7, pErros = 0):
+    if pErros == 0:
+        imagens_forca.img0()
+    elif pMax_erros == 7:
+        match pErros:
+            case 1: imagens_forca.img1()
+            case 2: imagens_forca.img2()
+            case 3: imagens_forca.img3()
+            case 4: imagens_forca.img4()
+            case 5: imagens_forca.img5()
+            case 6: imagens_forca.img6()
+            case 7: imagens_forca.img7()
     elif pMax_erros == 5:
-        case 
-        pErros == 0: imagens_forca.img0()
-        pErros == 1: imagens_forca.img3()
-        pErros == 2: imagens_forca.img4()
-        pErros == 3: imagens_forca.img5()
-        pErros == 4: imagens_forca.img6()
-        pErros == 5: imagens_forca.img7()
-
-    else:
-        case 
-        pErros == 0: imagens_forca.img0()
-        pErros == 1: imagens_forca.img3()
-        pErros == 2: imagens_forca.img5()
-        pErros == 3: imagens_forca.img7()
+        match pErros: 
+            case 1: imagens_forca.img3()
+            case 2: imagens_forca.img4()
+            case 3: imagens_forca.img5()
+            case 4: imagens_forca.img6()
+            case 5: imagens_forca.img7()
+    elif pMax_erros == 3:
+        match pErros:  
+            case 1: imagens_forca.img3()
+            case 2: imagens_forca.img5()
+            case 3: imagens_forca.img7()
 
 def mostra_palavra(pQtd_letras,pValores):
     print("Palavra:")
