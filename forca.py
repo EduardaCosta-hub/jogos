@@ -70,7 +70,6 @@ def define_palavra():
         for linha in arquivo:
             linha = linha.strip()
             palavras.append(linha)
-            print(linha)
         arquivo.close()  
     index = random.randint(0, len(palavras))
     palavra_secreta = palavras[index]
