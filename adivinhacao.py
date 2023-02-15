@@ -18,12 +18,12 @@ def jogar():
     else:
         chances = 5
     while tentativas <= chances:
+        print("Você deve colocar um número de 1 a 100")
         chute = int(input("Digite um número:"))
         igual = chute == numero_secreto
         maior = chute > numero_secreto
         menor = chute < numero_secreto
         if (chute < 1) or (chute > 100):
-            print("Você deve colocar um número de 1 a 100")
             continue
         if igual:
             print("Parabéns! Você acertou em {} tentativa(s)! E fez {} pontos!".format(tentativas, pontos))
@@ -37,3 +37,6 @@ def jogar():
         tentativas += 1
 
     print("Fim do jogo")
+    
+if (__name__ == "__main__"):
+    jogar()
